@@ -1,9 +1,9 @@
-import "./assets/TodoList.css";
+import "../assets/TodoList.css";
 import TodoItem from './TodoItem'
 import NewTodoItem from './NewTodoItem'
 import {v4 as uuid} from 'uuid'
 import React, {useState} from 'react'
-import {getTodoById,getTodoList,deleteTodo,updateTodoList,createNewTodo} from './stores/data'
+import {getTodoById,getTodoList,deleteTodo,updateTodoList,createNewTodo} from '../stores/data'
 
 
 

@@ -1,4 +1,4 @@
-import './assets/NewTodoItem.css'
+import '../assets/NewTodoItem.css'
 
 const NewTodoItem = ({create}) => {
   const handleCreateNew = (e)=>{
