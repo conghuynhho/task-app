@@ -31,7 +31,7 @@ const EditModal = ({ isDisplay, data, cancel }) => {
   
   if (isDisplayState) {
     const gender = data.gender ? (
-      <div className="input-group">
+      <div className="input-group-modal">
         <label htmlFor="">Gender</label>
         <input
           type="radio"
@@ -45,7 +45,7 @@ const EditModal = ({ isDisplay, data, cancel }) => {
         <span htmlFor="female">Female</span>
       </div>
     ) : (
-      <div className="input-group">
+      <div className="input-group-modal">
         <label htmlFor="">Gender</label>
         <input type="radio" name="gender" id="male" value={true} />
         <span htmlFor="male">Male</span>
@@ -66,15 +66,15 @@ const EditModal = ({ isDisplay, data, cancel }) => {
         <div className="edit-modal-content">
           <h2 className="edit-title">Edit your information</h2>
           <span className="close-btn"></span>
-          <div className="input-group">
+          <div className="input-group-modal">
             <label htmlFor="name">Name</label>
             <input type="text" name="name" defaultValue={data.name} />
           </div>
-          <div className="input-group">
+          <div className="input-group-modal">
             <label htmlFor="birthday">Birthday</label>
             <input type="text" name="birthday" defaultValue={data.birthday} />
           </div>
-          <div className="input-group">
+          <div className="input-group-modal">
             <label htmlFor="address">Address</label>
             <input type="text" name="address" defaultValue={data.address} />
           </div>

@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import ScreenUserList from './screens/user/list/List'
-// import App from './App'
+import App from './App'
 
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App/> */}
-    <ScreenUserList/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

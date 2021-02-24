@@ -82,7 +82,7 @@ const TodoList = () => {
   },[]);
 
   return (
-    <div className="content">
+    <div className="todo-content">
       <div className="todo-list">{List}</div>
       <NewTodoItem create={createNewTodo} />
     </div>

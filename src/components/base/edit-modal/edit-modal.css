@@ -24,24 +24,24 @@
   font-weight: bold;
 }
 
-.input-group{
+.input-group-modal{
   width: 40%;
   margin: 0 auto;
   padding: 4px;
 }
-.input-group label{
+.input-group-modal label{
   float: left;
 }
-.input-group input{
+.input-group-modal input{
   float: right;
 }
-.input-group::after{
+.input-group-modal::after{
   content: "";
   display: table;
   clear: both;
 }
 
-.input-group input[type="radio"]{
+.input-group-modal input[type="radio"]{
   float: none;
 }
 

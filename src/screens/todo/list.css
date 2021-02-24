@@ -1,5 +1,5 @@
-/* 
-.container {
+
+.todo-container {
   min-width: 400px;
   padding: 10px;
   background-color: #ff6666;
@@ -12,22 +12,23 @@
   color: white;
   margin-bottom: 40px;
 }
-.container .header {
+/* Header */
+.todo-container .todo-header {
   width: 80%;
   margin: 0 auto;
   margin-top: 30px;
 }
-.container .header .app-name {
+.todo-container .todo-header .todo-app-name {
   line-height: 0.3;
   font-size: 2.6rem;
 }
 
-.container .header .description {
+.todo-container .todo-header .todo-description {
   font-size: 1rem;
   padding-bottom: 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.container .content {
+.todo-container .todo-content {
   margin: 0 -0.6rem;
-} */
+}

@@ -1,6 +1,6 @@
 
 
-.container .content .todo-list li {
+.todo-container .todo-content .todo-list li {
   background-color: rgba(252, 227, 227, 0.3);
   padding: 3px 4rem;
   margin-bottom: 4px;
@@ -20,11 +20,11 @@
 }
 
 /* edit form style */
-.container .content .todo-list li .edit-todo-form{
+.todo-container .todo-content .todo-list li .edit-todo-form{
   padding: 10px 0;
   display: flex;
 }
-.container .content .todo-list li .edit-todo-form input{
+.todo-container .todo-content .todo-list li .edit-todo-form input{
   height: 1rem;
   width: 220px;
   padding: 15px 25px;
@@ -33,7 +33,7 @@
   border: none;
   font-family: "Quicksand", sans-serif;
 }
-.container .content .todo-list li .edit-todo-form button{
+.todo-container .todo-content .todo-list li .edit-todo-form button{
   background-color:rgba(233, 58, 58, 0.7);
   color: white;
   border: none;
@@ -43,22 +43,22 @@
   padding: 14px 15px;
   display: block;
 }
-.container .content .todo-list li .edit-todo-form button:hover{
+.todo-container .todo-content .todo-list li .edit-todo-form button:hover{
   background-color: rgba(226, 27, 27, 0.74);
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 /* style when !isEditing */
-.container .content .todo-list li .item-text {
+.todo-container .todo-content .todo-list li .item-text {
   max-width: 70%; 
   position: relative;
   transition: opacity 0.4s ease;
   cursor: pointer;
 }
-.container .content .todo-list li .completed{
+.todo-container .todo-content .todo-list li .completed{
   opacity: 0.6;
 }
-.container .content .todo-list li .completed::before{
+.todo-container .todo-content .todo-list li .completed::before{
   content: "";
   position: absolute;
   height: 2px;
@@ -76,12 +76,12 @@
   }
 }
 
-.container .content .todo-list li .item-button-group {
+.todo-container .todo-content .todo-list li .item-button-group {
   max-width: 30%;
   display: flex;
   justify-content: space-between;
 }
-.container .content .todo-list li .item-button-group button {
+.todo-container .todo-content .todo-list li .item-button-group button {
   background-color: none;
   background: none;
   border: none;

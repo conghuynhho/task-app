@@ -1,13 +1,13 @@
-body {
+/* body {
   font-family: "Avenir Next", "Avenir", "Helvetica Neue", Helvetica, Arial,
     sans-serif;
   font-size: 16px;
   color: #ffffff;
   line-height: 1.5;
   margin: 0;
-}
+} */
 
-h1 {
+.user-form-container h1 {
   font-family: "Texta", "Avenir Next", "Avenir", "Helvetica Neue", Helvetica,
     Arial, sans-serif;
   font-weight: 700;
@@ -16,7 +16,7 @@ h1 {
   text-align: center;
 }
 
-h2 {
+.user-form-container h2 {
   font-weight: 400;
   font-size: 24px;
   color: rgba(255, 255, 255, 0.4);

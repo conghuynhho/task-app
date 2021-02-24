@@ -1,15 +1,11 @@
 import React from "react";
-import Menu from "../../../components/sidebar/Menu";
-import ScreenRoot from "../../Root";
-import { BrowserRouter as Router } from "react-router-dom";
+import UserList from "../../../components/user/list/UserList";
+
 
 const ScreenUserList = () => {
   return (
     <div className="user-list">
-      <Router>
-        <Menu/>
-        <ScreenRoot/>
-      </Router>
+      <UserList/>
     </div>
   );
 };

@@ -11,24 +11,25 @@
 }
 
 
-.container .content .new-todo-group {
+.todo-container .todo-content .new-todo-group {
   width: 80%;
   margin: 0 auto;
   transition: all 0.4s ease-in-out;
 }
 
-.container .content .new-todo-group .title {
+.todo-container .todo-content .new-todo-group .title {
   font-size: 1.3rem;
   font-weight: bold;
   margin: 15px 0;
 }
-.container  .content .new-todo-group .input-group {
+.todo-container   .todo-content .new-todo-group .input-group {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row !important;
   align-items: center;
   margin-bottom: 35px;
 }
-.container  .content .new-todo-group .input-group input {
+.todo-container  .todo-content .new-todo-group .input-group input {
   max-width: 70%;
   /* width: 225px; */
   height: 1.3rem;
@@ -39,10 +40,10 @@
   border: none;
   font-family: "Quicksand", sans-serif;
 }
-.container .content  .new-todo-group .input-group input::placeholder {
+.todo-container .todo-content  .new-todo-group .input-group input::placeholder {
   font-family: "Quicksand", sans-serif;
 }
-.container  .content .new-todo-group .input-group a {
+.todo-container  .todo-content .new-todo-group .input-group a {
   max-width: 30%;
   text-decoration: none;
   color: white;
@@ -54,6 +55,6 @@
   height: 1.3rem;
   margin-left: 5px;
 }
-.container  .content .new-todo-group .input-group a:hover {
+.todo-container  .todo-content .new-todo-group .input-group a:hover {
   background-color: rgba(252, 227, 227, 0.3);
 }
