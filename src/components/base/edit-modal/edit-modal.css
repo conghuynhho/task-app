@@ -1,0 +1,57 @@
+.edit-modal{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 1;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+}
+
+.edit-modal-content{
+  margin: 0 auto;
+  width: 50%;
+  margin-top: 80px;
+  background-color: #fefefe;
+  color: black;
+  padding: 20px;
+  text-align: center;
+}
+
+.edit-title{
+  color: black;
+  font-weight: bold;
+}
+
+.input-group{
+  width: 40%;
+  margin: 0 auto;
+  padding: 4px;
+}
+.input-group label{
+  float: left;
+}
+.input-group input{
+  float: right;
+}
+.input-group::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.input-group input[type="radio"]{
+  float: none;
+}
+
+.edit-button-group{
+  margin: 18px 0px 4px 0px;
+}
+
+.edit-button-group button{
+  padding: 4px 8px;
+  margin: 5px;
+  cursor: pointer;
+}
+

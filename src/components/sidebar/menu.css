@@ -1,0 +1,47 @@
+.menu-wrapper {
+  background: #e6dada; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #274046,
+    #e6dada
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #274046,
+    #e6dada
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: 0 4px 2px -2px gray;
+}
+.menu-container {
+  width: 50%;
+  padding-top: 10px;
+  margin: 0 auto;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  justify-content: start;
+  grid-gap: 1em;
+  margin-left: 0;
+  padding-left: 0;
+  margin: 0 auto;
+  list-style: none;
+}
+.menu li {
+  padding: 10px;
+}
+.menu a {
+  color: #363e4a;
+  display: block;
+  text-decoration: none;
+  padding: 10px 10px;
+  background: none;
+  text-align: center;
+}
+.menu a:hover,
+.menu a:focus {
+  background: rgba(163, 163, 163, 0.788);
+  outline: 3px solid black;
+  color: black;
+}

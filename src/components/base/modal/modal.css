@@ -1,0 +1,40 @@
+.modal{
+  position:fixed;
+  top: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: auto;
+}
+.modal-content{
+  margin: 0 auto;
+  width: 30%;
+  margin-top: 80px;
+  background-color: #fefefe;
+  color: black;
+  padding: 20px;
+}
+
+.modal.visible{
+  display: block;
+}
+.modal.hidden{
+  display: none;
+}
+
+.close-btn{
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.success{
+  color: #5cb85c;
+}
+.error{
+  color:#BB2124;
+}

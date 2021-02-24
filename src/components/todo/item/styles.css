@@ -1,4 +1,24 @@
 
+
+.container .content .todo-list li {
+  background-color: rgba(252, 227, 227, 0.3);
+  padding: 3px 4rem;
+  margin-bottom: 4px;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  /* height: 0;
+  opacity: 0; */
+  /* display: none; */
+  /* animation: slideDown 0.5s ease-in-out 0s forwards; */
+}
+
+@keyframes slideDown{
+
+}
+
 /* edit form style */
 .container .content .todo-list li .edit-todo-form{
   padding: 10px 0;

@@ -1,12 +1,16 @@
-import '../assets/NewTodoItem.css'
-
-const NewTodoItem = ({create}) => {
-  const handleCreateNew = (e)=>{
+import "./styles.css";
+// import { TransitionGroup } from "react-transition-group";
+// import {createNewTodo} from '../stores/data'
+const NewTodoItem = ({ create }) => {
+  const handleCreateNew = (e) => {
+    e.preventDefault();
     let userInput = e.target.previousSibling.value;
-    create(userInput);
-    e.target.previousSibling.value ='';
-  }
-  
+    if (userInput !== "") {
+      create(userInput);
+      e.target.previousSibling.value = "";
+    }
+  };
+
   return (
     <div className="new-todo-group">
       <div className="title">New todo</div>

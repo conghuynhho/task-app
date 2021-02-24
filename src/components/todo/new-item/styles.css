@@ -1,8 +1,20 @@
 
 
+/* animation */
+.slide-down-appear{
+  height: 0;
+  opacity: 0;
+}
+.slide-down-appear.slide-down-appear-active{
+  height: auto;
+  opacity: 1;
+}
+
+
 .container .content .new-todo-group {
   width: 80%;
   margin: 0 auto;
+  transition: all 0.4s ease-in-out;
 }
 
 .container .content .new-todo-group .title {

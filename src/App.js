@@ -1,7 +1,5 @@
-import "./assets/App.css";
-import TodoList from "./components/TodoList";
-import {getTodoList} from './stores/data'
-
+import TodoList from "./components/todo/list/";
+import './assets/App.css'
 
 function App() {
   
