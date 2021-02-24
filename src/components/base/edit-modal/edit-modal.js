@@ -1,65 +1,127 @@
 import { useEffect, useState } from "react";
-import {updateUserList} from '../../../stores/user-info-data'
+import { updateUserList } from "../../../stores/user-info-data";
 import "./edit-modal.css";
 
 const EditModal = ({ isDisplay, data, cancel }) => {
   const [isDisplayState, setIsDisplayState] = useState(false);
 
-  
   const onSave = () => {
-    //TODO: get userInput 
+    //TODO: get userInput
     //TODO: PUT to the api
     //TODO: solve the response
-    
-    
-    toggleModal();  
-    
-  }
+
+    toggleModal();
+  };
   // console.log(isDisplay);
   // console.log(isDisplayState);
   // console.log("render 1 lan");
   const toggleModal = () => {
-    cancel(); 
+    cancel();
     setIsDisplayState(!isDisplayState);
+  };
+
+  useEffect(() => {
+    setIsDisplayState(isDisplay);
+  }, [isDisplay]);
+
+  function showRadioGroup(gender) {
+    let result = "";
+    switch (gender) {
+      case 0:
+        result = (
+          <div className="input-group-modal">
+            <div className="left-col">
+              <label htmlFor="">Gender</label>
+            </div>
+            <div className="right-col">
+              <div>
+                <input
+                  type="radio"
+                  name="gender"
+                  id="male"
+                  value={0}
+                  defaultChecked
+                />
+                <span htmlFor="male">Male</span>
+              </div>
+              <div>
+                <input type="radio" name="gender" id="female" value={1} />
+                <span htmlFor="female">Female</span>
+              </div>
+              <div>
+                <input type="radio" name="gender" id="undefined" value={2} />
+                <span htmlFor="female">Không xác định</span>
+              </div>
+            </div>
+          </div>
+        );
+        break;
+      case 1:
+        result = (
+          <div className="input-group-modal">
+            <div className="left-col">
+              <label htmlFor="">Gender</label>
+            </div>
+            <div className="right-col">
+              <div>
+                <input type="radio" name="gender" id="male" value={0} />
+                <span htmlFor="male">Male</span>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="gender"
+                  id="female"
+                  value={1}
+                  defaultChecked
+                />
+                <span htmlFor="female">Female</span>
+              </div>
+              <div>
+                <input type="radio" name="gender" id="undefined" value={2} />
+                <span htmlFor="female">Không xác định</span>
+              </div>
+            </div>
+          </div>
+        );
+        break;
+      case 2:
+        result = (
+          <div className="input-group-modal">
+            <div className="left-col">
+              <label htmlFor="">Gender</label>
+            </div>
+            <div className="right-col">
+              <div>
+                <input type="radio" name="gender" id="male" value={0} />
+                <span htmlFor="male">Male</span>
+              </div>
+              <div>
+                <input type="radio" name="gender" id="female" value={1} />
+                <span htmlFor="female">Female</span>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="gender"
+                  id="undefined"
+                  value={2}
+                  defaultChecked
+                />
+                <span htmlFor="female">Không xác định</span>
+              </div>
+            </div>
+          </div>
+        );
+        break;
+      default:
+        break;
+    }
+    return result;
   }
 
-  useEffect(()=>{
-    setIsDisplayState(isDisplay)
-  },[isDisplay])
-
-
-  
   if (isDisplayState) {
-    const gender = data.gender ? (
-      <div className="input-group-modal">
-        <label htmlFor="">Gender</label>
-        <input
-          type="radio"
-          name="gender"
-          id="male"
-          value={true}
-          defaultChecked
-        />
-        <span htmlFor="male">Male</span>
-        <input type="radio" name="gender" id="female" value={false} />
-        <span htmlFor="female">Female</span>
-      </div>
-    ) : (
-      <div className="input-group-modal">
-        <label htmlFor="">Gender</label>
-        <input type="radio" name="gender" id="male" value={true} />
-        <span htmlFor="male">Male</span>
-        <input
-          type="radio"
-          name="gender"
-          id="female"
-          value={false}
-          defaultChecked
-        />
-        <span htmlFor="female">Female</span>
-      </div>
-    );
-
+    const gender = showRadioGroup(data.gender);
 
     return (
       <div className="edit-modal">
@@ -67,16 +129,20 @@ const EditModal = ({ isDisplay, data, cancel }) => {
           <h2 className="edit-title">Edit your information</h2>
           <span className="close-btn"></span>
           <div className="input-group-modal">
-            <label htmlFor="name">Name</label>
-            <input type="text" name="name" defaultValue={data.name} />
+            <div className="left-col">
+              <label htmlFor="name">Name</label>
+            </div>
+            <div className="right-col">
+              <input type="text" name="name" defaultValue={data.name} />
+            </div>
           </div>
           <div className="input-group-modal">
-            <label htmlFor="birthday">Birthday</label>
-            <input type="text" name="birthday" defaultValue={data.birthday} />
+            <div className="left-col"><label htmlFor="birthday">Birthday</label></div>
+            <div className="right-col"><input type="text" name="birthday" defaultValue={data.birthday} /></div>
           </div>
           <div className="input-group-modal">
-            <label htmlFor="address">Address</label>
-            <input type="text" name="address" defaultValue={data.address} />
+            <div className="left-col"><label htmlFor="address">Address</label></div>
+            <div className="right-col"><input type="text" name="address" defaultValue={data.address} /></div>
           </div>
           {gender}
           <div className="edit-button-group">

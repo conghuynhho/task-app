@@ -11,7 +11,6 @@ export default function UserForm() {
     createNewUser(userInput).then((response) => {
       if (response.status === 201 || response.status === 200) {
         // Xu li luc thanh cong
-        console.log("success");
         const isDisplay = true;
         const isSuccess = true;
         const content = response.statusText;
@@ -35,12 +34,12 @@ export default function UserForm() {
     });
   };
 
-  function turnOffModal (){
+  function turnOffModal() {
     const result = {
       isDisplay: false,
       isSuccess: true,
       content: "",
-    }
+    };
     setModalProps(result);
   }
 
@@ -54,14 +53,13 @@ export default function UserForm() {
     const userName = nameEle.value;
     const birthday = birthdayEle.value;
     const address = addressEle.value;
-    // const gender = convertBoolean(genderEle.value);
 
     if (userName && birthday && address && genderEle !== null) {
       const userInput = {
         name: userName,
         birthday: birthday,
         address: address,
-        gender: convertBoolean(genderEle.value),
+        gender: Number(genderEle.value),
       };
       create(userInput);
     } else {
@@ -109,29 +107,12 @@ export default function UserForm() {
                 <span data-text="Birthday">Birthday</span>
               </label>
             </fieldset>
-            {/* <fieldset className="form-fieldset ui-input __third">
-              <input type="password" id="gender" />
-              <label htmlFor="gender">
-                <span data-text="Gender">Gender</span>
-              </label>
-            </fieldset> */}
             <fieldset className="form-fieldset ui-input __fourth">
               <input autoComplete="off" type="text" id="address" />
               <label htmlFor="address">
                 <span data-text="Address">Address</span>
               </label>
             </fieldset>
-            {/* <fieldset className="form-fieldset radio-input">
-              <span>Gender</span>
-              <input type="radio" name="gender" id="male" value="male" />
-              <label htmlFor="male">
-                <span data-text="Male">Male</span>
-              </label>
-              <input type="radio" id="gender" name="female" value="female" />
-              <label htmlFor="female">
-                <span data-text="Female">Female</span>
-              </label>
-            </fieldset> */}
             <br />
             <br />
             <div
@@ -141,14 +122,19 @@ export default function UserForm() {
             >
               <span id="bulgy-radios-label">GENDER</span>
               <label>
-                <input type="radio" id="male" value={true} name="gender" />
+                <input type="radio" id="male" value={0} name="gender" />
                 <span className="radio"></span>
                 <span className="label">Male</span>
               </label>
               <label>
-                <input type="radio" id="female" value={false} name="gender" />
+                <input type="radio" id="female" value={1} name="gender" />
                 <span className="radio"></span>
                 <span className="label">Female</span>
+              </label>
+              <label>
+                <input type="radio" id="undefined" value={2} name="gender" />
+                <span className="radio"></span>
+                <span className="label">Undefined</span>
               </label>
             </div>
             <div className="form-footer">
@@ -163,10 +149,10 @@ export default function UserForm() {
   );
 }
 
-function convertBoolean(string) {
-  const trueString = "true";
-  const falseString = "false";
-  if (string === trueString) return true;
-  if (string === falseString) return false;
-  return false;
-}
+// function convertBoolean(string) {
+//   const trueString = "true";
+//   const falseString = "false";
+//   if (string === trueString) return true;
+//   if (string === falseString) return false;
+//   return false;
+// }

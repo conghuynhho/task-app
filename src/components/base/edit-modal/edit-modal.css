@@ -11,7 +11,7 @@
 
 .edit-modal-content{
   margin: 0 auto;
-  width: 50%;
+  width: 40%;
   margin-top: 80px;
   background-color: #fefefe;
   color: black;
@@ -25,15 +25,24 @@
 }
 
 .input-group-modal{
-  width: 40%;
+  width: 80%;
   margin: 0 auto;
   padding: 4px;
 }
-.input-group-modal label{
-  float: left;
+.input-group-modal .left-col{
+  width: 30%;
+  height: auto;
+  display: inline-block;
+}
+.input-group-modal .right-col{
+  width: 70%;
+  height: auto;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .input-group-modal input{
-  float: right;
+  min-width: 63%;
 }
 .input-group-modal::after{
   content: "";
@@ -42,7 +51,7 @@
 }
 
 .input-group-modal input[type="radio"]{
-  float: none;
+  min-width: 20px ;
 }
 
 .edit-button-group{
