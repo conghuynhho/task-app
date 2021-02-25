@@ -39,9 +39,18 @@
   background: none;
   text-align: center;
 }
-.menu a:hover,
+.menu a:hover {
+  background: rgba(163, 163, 163, 0.788);
+  outline: 2px solid black;
+  color: black;
+}
 .menu a:focus {
   background: rgba(163, 163, 163, 0.788);
-  outline: 3px solid black;
+  outline: 2px solid black;
   color: black;
+}
+.menu li .active {
+  text-decoration: underline;
+  background-color: #e6dada;
+  border: 1px solid black;
 }

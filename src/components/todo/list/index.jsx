@@ -71,7 +71,6 @@ const TodoList = () => {
       toggleComplete={toggleComplete}
     />
   ));
-  // TODO: tim hieu lam viec voi api
 
   useEffect(() => {
     const fetchData = async () => {
