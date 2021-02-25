@@ -2,9 +2,25 @@ import { useEffect, useState } from "react";
 import { updateUserList } from "../../../stores/user-info-data";
 import "./edit-modal.css";
 
+// const DatePicker = require('react-bootstrap-date-picker')
+
+
 const EditModal = ({ isDisplay, data, cancel }) => {
   const [isDisplayState, setIsDisplayState] = useState(false);
+  // const [datePickerState, setDatePickerState] = useState(()=>{
+  //   let value = new Date().toISOString();
+  //   return {
+  //     value: value
+  //   }
+  // })
 
+  // const handleOnChangeDatePicker = (value, formattedValue) => {
+  //   const result = {
+  //     value: value,
+  //     formattedValue: formattedValue
+  //   }
+  //   setDatePickerState(result);
+  // }
   const onSave = () => {
     //TODO: get userInput
     //TODO: PUT to the api
@@ -145,6 +161,7 @@ const EditModal = ({ isDisplay, data, cancel }) => {
             <div className="right-col"><input type="text" name="address" defaultValue={data.address} /></div>
           </div>
           {gender}
+          {/* <DatePicker id="bootstrap-datepicker" value={datePickerState.value} onChange={handleOnChangeDatePicker} /> */}
           <div className="edit-button-group">
             <button onClick={onSave}>Save</button>
             <button onClick={toggleModal}>Cancel</button>

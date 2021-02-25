@@ -7,6 +7,16 @@ import { useState } from "react";
 
 export default function UserForm() {
   const [modalProps, setModalProps] = useState({});
+
+  function resetTextInput () {
+    (Array.from(document.querySelectorAll('input[type="text"]')).forEach(input => input.value = ""));
+  }
+
+  function resetRadioInput(){
+    (Array.from(document.querySelectorAll('input[type="radio"]')).forEach(input => input.checked = false));
+  }
+  
+  
   const create = (userInput) => {
     createNewUser(userInput).then((response) => {
       if (response.status === 201 || response.status === 200) {
@@ -19,6 +29,8 @@ export default function UserForm() {
           content: content,
           isSuccess: isSuccess,
         };
+        resetTextInput();
+        resetRadioInput();
         setModalProps(stateData);
       } else {
         const isDisplay = true;
@@ -99,7 +111,7 @@ export default function UserForm() {
             <fieldset className="form-fieldset ui-input __second">
               <input
                 autoComplete="off"
-                type="birthday"
+                type="text"
                 id="birthday"
                 tabIndex="0"
               />

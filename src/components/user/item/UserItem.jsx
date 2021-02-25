@@ -21,7 +21,6 @@ const generateGender = (gender) => {
 };
 
 const UserItem = (props) => {
-  console.log(props);
   const handleOnDelete = () => {
     // const id = e.target.closest("tr").firstChild.innerText;
     props.remove(props.id);
