@@ -45,8 +45,8 @@
   color: black;
 }
 .menu a:focus {
-  background: rgba(163, 163, 163, 0.788);
-  outline: 2px solid black;
+  background: rgba(138, 135, 135, 0.788);
+  /* outline: 2px solid black; */
   color: black;
 }
 .menu li .active {

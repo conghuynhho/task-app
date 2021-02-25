@@ -5,6 +5,11 @@ const apiLink = "https://601a27fc7db5390017834d19.mockapi.io/user-infomation/";
 async function getUserList() {
   return await axios.get(apiLink);
 }
+
+async function getUserById(id){
+  return await axios.get(apiLink + id);
+}
+
 async function updateUserList(data, id) {
   return await axios.put(apiLink + id, data);
 }
@@ -15,6 +20,6 @@ async function deleteUser(id){
   return await axios.delete(apiLink + id);
 }
 
-export {getUserList, updateUserList, createNewUser, deleteUser};
+export {getUserList, getUserById, updateUserList, createNewUser, deleteUser};
 
 

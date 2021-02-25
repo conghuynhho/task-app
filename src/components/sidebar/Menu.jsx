@@ -13,7 +13,6 @@ const url = {
 export default function Menu() {
   let locationAPI = useLocation();
   let location = locationAPI.pathname;
-  // const [location,setLocation] = useState(locationAPI.pathname);
 
   function removeActive() {
     const home = document.getElementById('home');
@@ -46,22 +45,18 @@ export default function Menu() {
    * => khi o page sai thi xoa class o toan bo element
    */
   useEffect(() => {
-    console.log(location);
     if (location.startsWith(url.contact,1)) {
       const contact = document.getElementById('contact')
-      console.log('dang o link todolist');
       addActive(contact);
       return;
     }
     if (location.startsWith(url.todolist,1)) {
       const todolist = document.getElementById('todolist');
-      console.log('dang o link contact');
       addActive(todolist);
       return;
     }
     if (location === (url.home)) {
       const home = document.getElementById('home');
-      console.log('dang o link home');
       addActive(home);
       return ;
     }

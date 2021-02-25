@@ -21,14 +21,14 @@ const generateGender = (gender) => {
 };
 
 const UserItem = (props) => {
-  const handleOnDelete = (e) => {
-    const id = e.target.closest("tr").firstChild.innerText;
-    props.remove(id);
+  console.log(props);
+  const handleOnDelete = () => {
+    // const id = e.target.closest("tr").firstChild.innerText;
+    props.remove(props.id);
   };
 
   const handleOnEdit = () => {
-    const data = { ...props };
-    props.edit(data);
+    props.edit(props);
   };
 
   return (
