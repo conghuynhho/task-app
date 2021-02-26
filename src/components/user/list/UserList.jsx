@@ -9,6 +9,8 @@ import Modal from "../../base/modal/modal";
 import EditModal from "../../base/edit-modal/edit-modal"
 
 export default function UserList() {
+  console.log("render userlist");
+
   const [userList, setUserList] = useState([]);
   const [modalProps, setModalProps] = useState({});
   const [editModalProps, setEditModalProps] = useState({});
@@ -22,6 +24,8 @@ export default function UserList() {
     };
     fetchData();
   }, []);
+
+  console.log(userList);
 
   // Function for working with api
   const removeUser = (id) => {
@@ -45,7 +49,7 @@ export default function UserList() {
     });
   };
 
-  const editUser = (data) => {
+  const showEditModal = (data) => {
     const editProps = {
       isDisplay: true,
       data: data
@@ -56,12 +60,16 @@ export default function UserList() {
 
 
   // function for Modals
-  const cancelEdit = () =>{
+  const cancelEdit = () => {
     const editProps = {
-      isDisplay : false,
-      data : null
+      isDisplay: false,
+      data: null
     };
     setEditModalProps(editProps);
+  }
+  
+  const showModal = (data) => {
+    setModalProps(data);
   }
   const turnOffModal = () => {
     const result = {
@@ -70,6 +78,15 @@ export default function UserList() {
       content: "",
     }
     setModalProps(result);
+  }
+  const setUserListStateFunc = (data) => {
+    const result = userList.map((user) => {
+      if(user.id === data.id) return{
+        ...data
+      }
+      else return user;
+    })
+    setUserList(result)
   }
 
 
@@ -82,14 +99,20 @@ export default function UserList() {
       birthday={user.birthday}
       address={user.address}
       remove={removeUser}
-      edit={editUser}
+      showEditModal={showEditModal}
     />
   ));
 
   return (
     <div className="user-table-container">
-      <EditModal isDisplay={editModalProps.isDisplay} data={editModalProps.data} cancel={cancelEdit} />
-      <Modal isDisplay={modalProps.isDisplay} isSuccess={modalProps.isSuccess} content={modalProps.content} turnOffModal={turnOffModal}  />
+      {editModalProps.isDisplay ? (
+        <EditModal isDisplay={editModalProps.isDisplay} data={editModalProps.data} cancel={cancelEdit} showNoti={showModal} setUserListState={setUserListStateFunc} />
+      ) : (null)}
+      {modalProps.isDisplay ? (
+        <Modal isDisplay={modalProps.isDisplay} isSuccess={modalProps.isSuccess} content={modalProps.content} turnOffModal={turnOffModal} />
+      ) : (null)}
+      {/* <EditModal isDisplay={editModalProps.isDisplay} data={editModalProps.data} cancel={cancelEdit} showNoti={showModal} /> */}
+      {/* <Modal isDisplay={modalProps.isDisplay} isSuccess={modalProps.isSuccess} content={modalProps.content} turnOffModal={turnOffModal} /> */}
       <table className="user-info-table">
         <thead>
           <tr>

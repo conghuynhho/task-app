@@ -14,7 +14,7 @@ const MenuLink = ({to, label, activeOnlyWhenExact })=> {
 
 
 export default function Menu() {
-
+  console.log("render menu");
   return (
     <div className="menu-wrapper">
       <nav className="menu-container">

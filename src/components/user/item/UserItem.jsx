@@ -2,6 +2,7 @@
 //   return gender ? "Male" : "Female";
 // };
 
+
 const generateGender = (gender) => {
   var result = "";
   switch (gender) {
@@ -21,26 +22,38 @@ const generateGender = (gender) => {
 };
 
 const UserItem = (props) => {
-  const handleOnDelete = () => {
+
+  console.log("render useritem");
+  
+  const handleOnClickDelete = () => {
     // const id = e.target.closest("tr").firstChild.innerText;
     props.remove(props.id);
   };
 
-  const handleOnEdit = () => {
-    props.edit(props);
+  const handleOnClickEdit = () => {
+    props.showEditModal(props);
   };
 
+
+  const formatDateToDisplay = (ymd) => {
+    let date = new Date(ymd);
+    let day = date.getDate().toString().padStart(2, '0');
+    let month = (date.getMonth() + 1).toString().padStart(2, '0');
+    let year = (date.getFullYear()).toString();
+    let formattedDate = day + '/' + month + '/' + year;
+    return formattedDate;
+  }
   return (
     <tr>
       <td>{props.id}</td>
       <td>{props.name}</td>
-      <td>{props.birthday}</td>
+      <td>{formatDateToDisplay(props.birthday)}</td>
       <td>{generateGender(props.gender)}</td>
       <td>{props.address}</td>
       <td>
         <div className="button-group">
-          <button onClick={handleOnEdit}>Edit</button>
-          <button onClick={handleOnDelete}>Delete</button>
+          <button onClick={handleOnClickEdit}>Edit</button>
+          <button onClick={handleOnClickDelete}>Delete</button>
         </div>
       </td>
     </tr>

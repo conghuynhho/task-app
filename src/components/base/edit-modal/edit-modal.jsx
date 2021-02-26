@@ -1,44 +1,71 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { updateUserList } from "../../../stores/user-info-data";
+import _ from 'lodash';
 import "./edit-modal.css";
 
-// const DatePicker = require('react-bootstrap-date-picker')
 
 
-const EditModal = ({ isDisplay, data, cancel }) => {
-  const [isDisplayState, setIsDisplayState] = useState(false);
-  // const [datePickerState, setDatePickerState] = useState(()=>{
-  //   let value = new Date().toISOString();
-  //   return {
-  //     value: value
-  //   }
-  // })
-
-  // const handleOnChangeDatePicker = (value, formattedValue) => {
-  //   const result = {
-  //     value: value,
-  //     formattedValue: formattedValue
-  //   }
-  //   setDatePickerState(result);
-  // }
-  const onSave = () => {
+const EditModal = ({ isDisplay, data, cancel, showNoti, setUserListState }) => {
+  // const [isDisplayState, setIsDisplayState] = useState(false);
+  console.log("render editmodal");
+  const onSave = (e) => {
+    e.preventDefault();
     //TODO: get userInput
+    const editForm = document.querySelector('.edit-form');
+    const editFormData = new FormData(editForm);
+    const name = editFormData.get("name");
+    const birthday = editFormData.get("birthday");
+    const address = editFormData.get("address");
+    const gender = editFormData.get("gender");
+    const userInput = {
+      id: data.id,
+      name: name,
+      birthday: birthday,
+      address: address,
+      gender: Number(gender)
+    }
+    const compareObj = {
+      id: data.id,
+      name: data.name,
+      birthday: data.birthday,
+      address: data.address,
+      gender: data.gender
+    }
     //TODO: PUT to the api
-    //TODO: solve the response
+    if (_.isEqual(compareObj, userInput)) {
+      toggleModal();
+    }
+    else {
+      updateUserList(userInput, data.id).then((response) => {
+        if (response.status === 200 || response.status === 201) {
+          //TODO: solve the response
+          toggleModal();
+          const stateData = {
+            isDisplay: true,
+            isSuccess: true,
+            content: "Edit successfully"
+          }
+          showNoti(stateData);
+          setUserListState(userInput);    
+        }
+      })
+    }
 
-    toggleModal();
+
   };
   // console.log(isDisplay);
   // console.log(isDisplayState);
   // console.log("render 1 lan");
-  const toggleModal = () => {
+  const toggleModal = (e) => {
+    if (e)
+      e.preventDefault();
     cancel();
-    setIsDisplayState(!isDisplayState);
+    // setIsDisplayState(!isDisplayState);
   };
 
-  useEffect(() => {
-    setIsDisplayState(isDisplay);
-  }, [isDisplay]);
+  // useEffect(() => {
+  //   setIsDisplayState(isDisplay);
+  // }, [isDisplay]);
 
   function showRadioGroup(gender) {
     let result = "";
@@ -136,37 +163,38 @@ const EditModal = ({ isDisplay, data, cancel }) => {
     return result;
   }
 
-  if (isDisplayState) {
+  if (isDisplay) {
     const gender = showRadioGroup(data.gender);
 
     return (
       <div className="edit-modal">
-        <div className="edit-modal-content">
-          <h2 className="edit-title">Edit your information</h2>
-          <span className="close-btn"></span>
-          <div className="input-group-modal">
-            <div className="left-col">
-              <label htmlFor="name">Name</label>
+        <form action="/" className="edit-form">
+          <div className="edit-modal-content">
+            <h2 className="edit-title">Edit your information</h2>
+            <span className="close-btn"></span>
+            <div className="input-group-modal">
+              <div className="left-col">
+                <label htmlFor="name">Name</label>
+              </div>
+              <div className="right-col">
+                <input type="text" name="name" defaultValue={data.name} />
+              </div>
             </div>
-            <div className="right-col">
-              <input type="text" name="name" defaultValue={data.name} />
+            <div className="input-group-modal">
+              <div className="left-col"><label htmlFor="birthday">Birthday</label></div>
+              <div className="right-col"><input type="date" name="birthday" defaultValue={data.birthday} /></div>
+            </div>
+            <div className="input-group-modal">
+              <div className="left-col"><label htmlFor="address">Address</label></div>
+              <div className="right-col"><input type="text" name="address" defaultValue={data.address} /></div>
+            </div>
+            {gender}
+            <div className="edit-button-group">
+              <button type="button" onClick={onSave}>Save</button>
+              <button type="button" onClick={toggleModal}>Cancel</button>
             </div>
           </div>
-          <div className="input-group-modal">
-            <div className="left-col"><label htmlFor="birthday">Birthday</label></div>
-            <div className="right-col"><input type="date" name="birthday" defaultValue={data.birthday} /></div>
-          </div>
-          <div className="input-group-modal">
-            <div className="left-col"><label htmlFor="address">Address</label></div>
-            <div className="right-col"><input type="text" name="address" defaultValue={data.address} /></div>
-          </div>
-          {gender}
-          {/* <DatePicker id="bootstrap-datepicker" value={datePickerState.value} onChange={handleOnChangeDatePicker} /> */}
-          <div className="edit-button-group">
-            <button onClick={onSave}>Save</button>
-            <button onClick={toggleModal}>Cancel</button>
-          </div>
-        </div>
+        </form>
       </div>
     );
   } else return null;

@@ -8,11 +8,11 @@ import { useState } from "react";
 export default function UserForm() {
   const [modalProps, setModalProps] = useState({});
 
-  function resetForm(){
+  function resetForm() {
     const form = document.querySelector('.form');
-    if(form) form.reset();
+    if (form) form.reset();
   }
-  
+
   const create = (userInput) => {
     createNewUser(userInput).then((response) => {
       if (response.status === 201 || response.status === 200) {
@@ -60,7 +60,6 @@ export default function UserForm() {
     const userName = nameEle.value;
     const birthday = birthdayEle.value;
     const address = addressEle.value;
-    console.log(birthday);
 
     if (userName && birthday && address && genderEle !== null) {
       const userInput = {
@@ -99,6 +98,7 @@ export default function UserForm() {
                 type="text"
                 id="username"
                 tabIndex="0"
+                name="name"
               />
               <label htmlFor="username">
                 <span data-text="Name">Name</span>
@@ -110,13 +110,14 @@ export default function UserForm() {
                 type="date"
                 id="birthday"
                 tabIndex="0"
+                name="birthday"
               />
               <label htmlFor="birthday">
                 <span data-text="Birthday">Birthday</span>
               </label>
             </fieldset>
             <fieldset className="form-fieldset ui-input __fourth">
-              <input autoComplete="off" type="text" id="address" />
+              <input autoComplete="off" type="text" id="address" name="address"/>
               <label htmlFor="address">
                 <span data-text="Address">Address</span>
               </label>
