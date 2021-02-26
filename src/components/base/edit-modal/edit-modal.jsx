@@ -154,7 +154,7 @@ const EditModal = ({ isDisplay, data, cancel }) => {
           </div>
           <div className="input-group-modal">
             <div className="left-col"><label htmlFor="birthday">Birthday</label></div>
-            <div className="right-col"><input type="text" name="birthday" defaultValue={data.birthday} /></div>
+            <div className="right-col"><input type="date" name="birthday" defaultValue={data.birthday} /></div>
           </div>
           <div className="input-group-modal">
             <div className="left-col"><label htmlFor="address">Address</label></div>

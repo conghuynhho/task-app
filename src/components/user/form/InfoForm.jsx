@@ -8,14 +8,10 @@ import { useState } from "react";
 export default function UserForm() {
   const [modalProps, setModalProps] = useState({});
 
-  function resetTextInput () {
-    (Array.from(document.querySelectorAll('input[type="text"]')).forEach(input => input.value = ""));
+  function resetForm(){
+    const form = document.querySelector('.form');
+    if(form) form.reset();
   }
-
-  function resetRadioInput(){
-    (Array.from(document.querySelectorAll('input[type="radio"]')).forEach(input => input.checked = false));
-  }
-  
   
   const create = (userInput) => {
     createNewUser(userInput).then((response) => {
@@ -29,8 +25,7 @@ export default function UserForm() {
           content: content,
           isSuccess: isSuccess,
         };
-        resetTextInput();
-        resetRadioInput();
+        resetForm();
         setModalProps(stateData);
       } else {
         const isDisplay = true;
@@ -65,6 +60,7 @@ export default function UserForm() {
     const userName = nameEle.value;
     const birthday = birthdayEle.value;
     const address = addressEle.value;
+    console.log(birthday);
 
     if (userName && birthday && address && genderEle !== null) {
       const userInput = {
@@ -111,7 +107,7 @@ export default function UserForm() {
             <fieldset className="form-fieldset ui-input __second">
               <input
                 autoComplete="off"
-                type="text"
+                type="date"
                 id="birthday"
                 tabIndex="0"
               />
